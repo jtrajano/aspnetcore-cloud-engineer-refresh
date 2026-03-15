@@ -1,6 +1,11 @@
-﻿namespace ProductCatalog.Infrastructure;
+﻿using Microsoft.EntityFrameworkCore;
+using ProductCatalog.Application.Interfaces;
+using ProductCatalog.Domain;
 
-public class AppDbContext: DbContext
+
+namespace ProductCatalog.Infrastructure;
+
+public class AppDbContext: DbContext, IAppDbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
