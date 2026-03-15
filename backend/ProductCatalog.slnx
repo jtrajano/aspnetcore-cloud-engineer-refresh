@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ImageProcessing.Worker/ImageProcessing.Worker.csproj" />
   <Project Path="ProductCatalog.Api/ProductCatalog.Api.csproj" />
   <Project Path="ProductCatalog.Application/ProductCatalog.Application.csproj" />
   <Project Path="ProductCatalog.Domain/ProductCatalog.Domain.csproj" />
