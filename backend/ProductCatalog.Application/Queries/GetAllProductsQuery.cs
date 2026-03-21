@@ -21,19 +21,14 @@ public class GetAllProductsQueryHandler(IAppDbContext appDbContext)
 {
     public async Task<List<ProductListDto>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
-        //var query =  appDbContext.Products.Select(p => new ProductListDto
-        //(
-        //    p.Id,
-        //    p.Name,
-        //    p.Price,
-        //    p.Quantity
-        //));
+        var query = appDbContext.Products.Select(p => new ProductListDto
+        (
+            p.Id,
+            p.Name,
+            p.Price,
+            p.Quantity
+        ));
 
-        //return await query.ToListAsync();
-
-        return new List<ProductListDto> {
-            new ProductListDto (Guid.NewGuid() , "Car", 1000, 1)
-              
-        };
+        return await query.ToListAsync();
     }
 }

@@ -13,7 +13,6 @@ public static class Endpoints
         product.MapGet("/", async ([FromServices] ISender sender) =>
         {
             return await sender.Send(new GetAllProductsQuery());
-
         });
     }
 }

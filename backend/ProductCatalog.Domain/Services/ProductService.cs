@@ -1,4 +1,6 @@
-﻿namespace ProductCatalog.Domain.Services;
+﻿using ProductCatalog.Domain.Entities;
+
+namespace ProductCatalog.Domain.Services;
 
 public class ProductService
 {

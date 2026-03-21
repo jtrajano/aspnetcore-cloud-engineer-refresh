@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProductCatalog.Application.Interfaces;
 using ProductCatalog.Domain;
-
+using ProductCatalog.Domain.Entities;
 
 namespace ProductCatalog.Infrastructure;
 

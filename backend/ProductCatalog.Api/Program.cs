@@ -3,6 +3,7 @@ using ProductCatalog.Api;
 using ProductCatalog.Application.Interfaces;
 using ProductCatalog.Application.Queries;
 using ProductCatalog.Infrastructure;
+using ProductCatalog.Infrastructure.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +37,12 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    await context.Database.EnsureCreatedAsync();
+    await DataSeeder.SeedAsync(context);
 }
 
 app.UseCors("FrontendPolicy");

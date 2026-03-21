@@ -3,6 +3,7 @@ using ProductCatalog.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ProductCatalog.Domain.Entities;
 
 namespace ProductCatalog.Application.Interfaces;
 
