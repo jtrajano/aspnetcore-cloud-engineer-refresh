@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using ProductCatalog.Api;
 using ProductCatalog.Application.Interfaces;
 using ProductCatalog.Application.Queries;
@@ -12,7 +13,9 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAppDbContext,  AppDbContext>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllProductsQuery).Assembly));
-// Todo Add Cors Policy
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors(options =>
 {
@@ -38,7 +41,6 @@ if (app.Environment.IsDevelopment())
 app.UseCors("FrontendPolicy");
 
 app.UseHttpsRedirection();
-
 
 app.MapProductEndpoints();
 
