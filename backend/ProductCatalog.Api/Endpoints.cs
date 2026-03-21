@@ -10,7 +10,7 @@ public static class Endpoints
 
         var product = app.MapGroup("api/products");
 
-        app.MapGet("/", async ([FromServices] ISender sender) =>
+        product.MapGet("/", async ([FromServices] ISender sender) =>
         {
             return await sender.Send(new GetAllProductsQuery());
 
